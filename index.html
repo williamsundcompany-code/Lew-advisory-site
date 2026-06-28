@@ -1,716 +1,114 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LEW Advisory — Fractional Finance & Accounting | Charlottesville, VA</title>
-  <meta name="description" content="Senior-level bookkeeping, grant reporting, and fractional CFO services for small businesses, nonprofits, and individuals in Charlottesville, VA." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    :root {
-      --green:       #1E4D2B;
-      --green-deep:  #153820;
-      --green-light: #2a6639;
-      --gold:        #B8962E;
-      --gold-light:  #d4ae4e;
-      --cream:       #F7F3EC;
-      --cream-dark:  #EDE7DA;
-      --charcoal:    #2C2C2C;
-      --mid:         #5A5A5A;
-      --light:       #9A9A9A;
-      --white:       #FFFFFF;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      color: var(--charcoal);
-      background: var(--white);
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ── NAV ── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      background: var(--green);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 5%;
-      height: 68px;
-      border-bottom: 2px solid var(--gold);
-    }
-
-    .nav-brand {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
-    }
-
-    .nav-brand-name {
-      font-family: 'Lora', serif;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: var(--white);
-      letter-spacing: 0.02em;
-    }
-
-    .nav-brand-sub {
-      font-size: 0.65rem;
-      color: var(--gold-light);
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-weight: 500;
-    }
-
-    .nav-cta {
-      background: var(--gold);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.82rem;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 2px;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      transition: background 0.2s;
-    }
-
-    .nav-cta:hover { background: var(--gold-light); }
-
-    /* ── HERO ── */
-    .hero {
-      min-height: 100vh;
-      background: var(--green);
-      display: flex;
-      align-items: center;
-      padding: 120px 5% 80px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Decorative vertical rule — the signature element */
-    .hero::before {
-      content: '';
-      position: absolute;
-      left: 5%;
-      top: 15%;
-      bottom: 15%;
-      width: 2px;
-      background: linear-gradient(to bottom, transparent, var(--gold) 20%, var(--gold) 80%, transparent);
-      opacity: 0.6;
-    }
-
-    .hero-inner {
-      max-width: 780px;
-      padding-left: 48px;
-    }
-
-    .hero-eyebrow {
-      font-size: 0.72rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 28px;
-    }
-
-    .hero-headline {
-      font-family: 'Lora', serif;
-      font-size: clamp(2.4rem, 5vw, 3.8rem);
-      font-weight: 600;
-      color: var(--white);
-      line-height: 1.15;
-      margin-bottom: 28px;
-    }
-
-    .hero-headline em {
-      font-style: italic;
-      color: var(--gold-light);
-    }
-
-    .hero-body {
-      font-size: 1.05rem;
-      color: rgba(255,255,255,0.78);
-      max-width: 560px;
-      margin-bottom: 48px;
-      font-weight: 300;
-      line-height: 1.75;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: var(--white);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 600;
-      padding: 16px 36px;
-      border-radius: 2px;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      transition: background 0.2s, transform 0.15s;
-      display: inline-block;
-    }
-
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-1px);
-    }
-
-    .btn-ghost {
-      color: rgba(255,255,255,0.75);
-      text-decoration: none;
-      font-size: 0.88rem;
-      font-weight: 500;
-      padding: 16px 4px;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .btn-ghost:hover {
-      color: var(--white);
-      border-color: var(--gold);
-    }
-
-    /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--green-deep);
-      border-top: 1px solid rgba(184,150,46,0.3);
-      padding: 20px 5%;
-      display: flex;
-      gap: 40px;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .trust-item {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.6);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .trust-item::before {
-      content: '';
-      width: 4px;
-      height: 4px;
-      background: var(--gold);
-      border-radius: 50%;
-      flex-shrink: 0;
-    }
-
-    /* ── SECTIONS ── */
-    .section {
-      padding: 96px 5%;
-    }
-
-    .section-alt {
-      background: var(--cream);
-    }
-
-    .section-inner {
-      max-width: 1080px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Lora', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 600;
-      color: var(--green);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .section-body {
-      font-size: 1rem;
-      color: var(--mid);
-      max-width: 620px;
-      line-height: 1.8;
-    }
-
-    /* ── WHO WE SERVE ── */
-    .serve-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2px;
-      margin-top: 56px;
-      border: 2px solid var(--cream-dark);
-    }
-
-    .serve-card {
-      background: var(--white);
-      padding: 44px 36px;
-      position: relative;
-    }
-
-    .serve-card::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 36px; right: 36px;
-      height: 2px;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
-    .serve-card:hover::after { transform: scaleX(1); }
-
-    .serve-icon {
-      width: 40px;
-      height: 40px;
-      border: 1.5px solid var(--gold);
-      border-radius: 2px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 24px;
-      color: var(--gold);
-      font-size: 1.1rem;
-    }
-
-    .serve-title {
-      font-family: 'Lora', serif;
-      font-size: 1.15rem;
-      font-weight: 600;
-      color: var(--green);
-      margin-bottom: 12px;
-    }
-
-    .serve-desc {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-
-    /* ── SERVICES ── */
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 24px;
-      margin-top: 56px;
-    }
-
-    .service-card {
-      border: 1px solid var(--cream-dark);
-      padding: 36px 32px;
-      background: var(--white);
-      transition: border-color 0.2s, box-shadow 0.2s;
-    }
-
-    .service-card:hover {
-      border-color: var(--gold);
-      box-shadow: 0 4px 24px rgba(30,77,43,0.08);
-    }
-
-    .service-name {
-      font-family: 'Lora', serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      color: var(--green);
-      margin-bottom: 10px;
-    }
-
-    .service-desc {
-      font-size: 0.88rem;
-      color: var(--mid);
-      line-height: 1.75;
-    }
-
-    /* ── ABOUT ── */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-      margin-top: 56px;
-    }
-
-    .about-credentials {
-      margin-top: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .credential {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 0.88rem;
-      color: var(--mid);
-    }
-
-    .credential-dot {
-      width: 6px;
-      height: 6px;
-      background: var(--gold);
-      border-radius: 50%;
-      margin-top: 7px;
-      flex-shrink: 0;
-    }
-
-    .about-aside {
-      background: var(--green);
-      padding: 52px 44px;
-      position: relative;
-    }
-
-    .about-aside::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0;
-      width: 4px;
-      height: 100%;
-      background: var(--gold);
-    }
-
-    .aside-quote {
-      font-family: 'Lora', serif;
-      font-size: 1.35rem;
-      font-style: italic;
-      color: var(--white);
-      line-height: 1.6;
-      margin-bottom: 28px;
-    }
-
-    .aside-name {
-      font-size: 0.82rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    .aside-title {
-      font-size: 0.78rem;
-      color: rgba(255,255,255,0.55);
-      margin-top: 4px;
-    }
-
-    /* ── CONTACT ── */
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      margin-top: 56px;
-      align-items: start;
-    }
-
-    .contact-info p {
-      font-size: 0.95rem;
-      color: var(--mid);
-      line-height: 1.8;
-      margin-bottom: 32px;
-    }
-
-    .contact-detail {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      font-size: 0.88rem;
-      color: var(--mid);
-      margin-bottom: 12px;
-    }
-
-    .contact-detail-label {
-      font-weight: 600;
-      color: var(--green);
-      min-width: 60px;
-    }
-
-    .form-group {
-      margin-bottom: 20px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 8px;
-    }
-
-    input, select, textarea {
-      width: 100%;
-      padding: 12px 16px;
-      border: 1px solid var(--cream-dark);
-      border-radius: 2px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
-      color: var(--charcoal);
-      background: var(--white);
-      transition: border-color 0.2s;
-      outline: none;
-    }
-
-    input:focus, select:focus, textarea:focus {
-      border-color: var(--green);
-    }
-
-    textarea { resize: vertical; min-height: 110px; }
-
-    .form-submit {
-      width: 100%;
-      background: var(--green);
-      color: var(--white);
-      border: none;
-      padding: 16px;
-      font-family: 'Inter', sans-serif;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background 0.2s;
-      margin-top: 8px;
-    }
-
-    .form-submit:hover { background: var(--green-light); }
-
-    /* ── FOOTER ── */
-    footer {
-      background: var(--green-deep);
-      border-top: 2px solid var(--gold);
-      padding: 40px 5%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-brand {
-      font-family: 'Lora', serif;
-      font-size: 1rem;
-      color: var(--white);
-      font-weight: 600;
-    }
-
-    .footer-legal {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.4);
-      line-height: 1.6;
-    }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 768px) {
-      nav { padding: 0 6%; }
-      .hero { padding: 100px 6% 64px; }
-      .hero::before { display: none; }
-      .hero-inner { padding-left: 0; }
-      .section { padding: 64px 6%; }
-      .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
-      .serve-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; align-items: flex-start; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      * { transition: none !important; }
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Description" content="Senior-level bookkeeping, grant reporting, and fractional CFO services for small businesses, nonprofits, and individuals in Charlottesville, VA.">
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.5">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.4px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 7.8px 'Helvetica Neue'; color: #c9a03e; -webkit-text-stroke: #c9a03e}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #a98523}
+    p.p4 {margin: 0.0px 0.0px 28.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p6 {margin: 0.0px 0.0px 48.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.78); -webkit-text-stroke: rgba(255, 255, 255, 0.78)}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff; background-color: #a98523}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.75); -webkit-text-stroke: rgba(255, 255, 255, 0.75)}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.6); -webkit-text-stroke: rgba(255, 255, 255, 0.6); background-color: #122b18}
+    p.p10 {margin: 0.0px 0.0px 16.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.2px 'Apple Symbols'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.2px '.CJK Symbols Fallback SC'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 13.2px 'Helvetica Neue'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p20 {margin: 0.0px 0.0px 20.0px 0.0px; font: 11.4px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 11.4px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848; background-color: #a98523; min-height: 12.0px}
+    p.p23 {margin: 0.0px 0.0px 28.0px 0.0px; font: 16.2px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #a98523; -webkit-text-stroke: #a98523}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.4px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.55); -webkit-text-stroke: rgba(255, 255, 255, 0.55)}
+    p.p26 {margin: 0.0px 0.0px 16.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #484848; -webkit-text-stroke: #484848}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20}
+    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #212121; -webkit-text-stroke: #212121; min-height: 15.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff}
+    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #ffffff; color: rgba(255, 255, 255, 0.4); -webkit-text-stroke: rgba(255, 255, 255, 0.4)}
+    span.s1 {font-kerning: none; background-color: #183d20}
+    span.s2 {font-kerning: none}
+    span.s3 {font-kerning: none; color: #c9a03e; background-color: #183d20; -webkit-text-stroke: 0px #c9a03e}
+    span.s4 {font: 12.0px 'Helvetica Neue'; font-kerning: none; color: #212121; -webkit-text-stroke: 0px #212121}
+    span.s5 {font-kerning: none; background-color: #f5f0e7}
+    span.s6 {font-kerning: none; background-color: #ffffff}
+    span.s7 {font-kerning: none; background-color: #122b18}
   </style>
 </head>
 <body>
-
-  <!-- NAV -->
-  <nav>
-    <div class="nav-brand">
-      <span class="nav-brand-name">LEW Advisory</span>
-      <span class="nav-brand-sub">a DBA of L.E. Williams &amp; Co. LLC</span>
-    </div>
-    <a href="#contact" class="nav-cta">Get in Touch</a>
-  </nav>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-eyebrow">Charlottesville, VA &amp; Surrounding Counties</p>
-      <h1 class="hero-headline">
-        Senior-level finance,<br>
-        <em>on your terms.</em>
-      </h1>
-      <p class="hero-body">
-        LEW Advisory brings CFO-level thinking to small businesses, nonprofits, and individuals — without the overhead of a full-time hire. Bookkeeping, grant reporting, and fractional CFO services rooted in Charlottesville.
-      </p>
-      <div class="hero-actions">
-        <a href="#contact" class="btn-primary">Schedule a Consultation</a>
-        <a href="#services" class="btn-ghost">See Services →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRUST BAR -->
-  <div class="trust-bar">
-    <span class="trust-item">QuickBooks ProAdvisor</span>
-    <span class="trust-item">Oracle NetSuite</span>
-    <span class="trust-item">Nonprofit &amp; Grant Fund Accounting</span>
-    <span class="trust-item">US GAAP · IFRS · HGB</span>
-    <span class="trust-item">Charlottesville, VA</span>
-  </div>
-
-  <!-- WHO WE SERVE -->
-  <section class="section section-alt" id="who-we-serve">
-    <div class="section-inner">
-      <p class="section-label">Who We Serve</p>
-      <h2 class="section-title">Built for the businesses<br>that build this community.</h2>
-      <p class="section-body">LEW Advisory works with three types of clients across Charlottesville and Albemarle, Fluvanna, Greene, Nelson, Orange, and Louisa counties.</p>
-      <div class="serve-grid">
-        <div class="serve-card">
-          <div class="serve-icon">&#9776;</div>
-          <h3 class="serve-title">Small Businesses</h3>
-          <p class="serve-desc">Clean books, timely financials, and a finance partner who understands what it takes to run a small business — from startup through growth.</p>
-        </div>
-        <div class="serve-card">
-          <div class="serve-icon">&#9670;</div>
-          <h3 class="serve-title">Nonprofits &amp; Grant-Funded Orgs</h3>
-          <p class="serve-desc">Specialized fund accounting and grant reporting built for compliance, audit readiness, and funder relationships. We speak the language of program finance.</p>
-        </div>
-        <div class="serve-card">
-          <div class="serve-icon">&#9632;</div>
-          <h3 class="serve-title">Individuals &amp; Gig Workers</h3>
-          <p class="serve-desc">Freelancers and self-employed professionals get year-round bookkeeping, quarterly estimated tax planning, and Schedule C preparation.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section" id="services">
-    <div class="section-inner">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">What we do</h2>
-      <p class="section-body">From monthly bookkeeping to fractional CFO engagements, every service is delivered with senior-level attention.</p>
-      <div class="services-grid">
-        <div class="service-card">
-          <h3 class="service-name">Bookkeeping</h3>
-          <p class="service-desc">Monthly bookkeeping to keep your records clean, current, and audit-ready. Includes reconciliations, financial statements, and a monthly check-in.</p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-name">Catch-Up &amp; Clean-Up</h3>
-          <p class="service-desc">Behind on your books? We'll get you current — whether it's a few months or a few years. Ideal for growing businesses and new clients switching providers.</p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-name">Grant Reporting &amp; Fund Accounting</h3>
-          <p class="service-desc">Specialized reporting for nonprofits and grant-funded organizations. Ensures compliance with funder requirements and supports audit readiness.</p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-name">Financial Advisory</h3>
-          <p class="service-desc">On-demand guidance for financial decisions, planning, and reporting. A sounding board when you need CFO-level thinking without the full-time cost.</p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-name">Gig Worker Tax Management</h3>
-          <p class="service-desc">Quarterly estimated tax planning, Schedule C preparation, and year-round bookkeeping for freelancers and self-employed individuals.</p>
-        </div>
-        <div class="service-card">
-          <h3 class="service-name">Fractional CFO</h3>
-          <p class="service-desc">Strategic financial leadership on a part-time basis. Cash flow forecasting, scenario modeling, board reporting, and financial oversight — when you need it.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section section-alt" id="about">
-    <div class="section-inner">
-      <p class="section-label">About</p>
-      <h2 class="section-title">Finance experience that travels.</h2>
-      <div class="about-grid">
-        <div class="about-content">
-          <p style="font-size:0.95rem;color:var(--mid);line-height:1.85;margin-bottom:20px;">
-            Larry Edward Williams II is a finance and accounting professional with senior-level experience across small businesses, nonprofits, and international organizations. He founded LEW Advisory to give Charlottesville-area clients access to the same quality of financial thinking that large institutions take for granted.
-          </p>
-          <p style="font-size:0.95rem;color:var(--mid);line-height:1.85;">
-            Most recently based in Berlin, Larry managed multi-entity, donor-funded program finances at the International Civil Society Centre. He holds a B.Sc. in Business Management &amp; Administration (Finance) from Touro University and is a QuickBooks ProAdvisor.
-          </p>
-          <div class="about-credentials">
-            <div class="credential"><span class="credential-dot"></span><span>Oracle NetSuite · QuickBooks · DATEV · Power BI</span></div>
-            <div class="credential"><span class="credential-dot"></span><span>US GAAP · IFRS · HGB multi-framework fluency</span></div>
-            <div class="credential"><span class="credential-dot"></span><span>International development &amp; nonprofit sector depth</span></div>
-            <div class="credential"><span class="credential-dot"></span><span>B.Sc. Business Management &amp; Administration (Finance), Touro University</span></div>
-          </div>
-        </div>
-        <div class="about-aside">
-          <p class="aside-quote">"Charlottesville deserves the same quality of financial thinking that large organizations take for granted — without the overhead."</p>
-          <p class="aside-name">Larry Edward Williams II</p>
-          <p class="aside-title">Principal, LEW Advisory</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section" id="contact">
-    <div class="section-inner">
-      <p class="section-label">Get in Touch</p>
-      <h2 class="section-title">Let's talk about your books.</h2>
-      <p class="section-body" style="margin-bottom:16px;">Pick a time that works for you. The first consultation is free — no commitment required.</p>
-
-      <!-- Contact details -->
-      <div style="display:flex; gap:40px; flex-wrap:wrap; margin-bottom:40px; margin-top:8px;">
-        <div class="contact-detail">
-          <span class="contact-detail-label">Location</span>
-          <span>Charlottesville, VA</span>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Email</span>
-          <span>[your email here]</span>
-        </div>
-        <div class="contact-detail">
-          <span class="contact-detail-label">Serving</span>
-          <span>Charlottesville · Albemarle · Fluvanna · Greene · Nelson · Orange · Louisa</span>
-        </div>
-      </div>
-
-      <!-- Calendly inline widget begin -->
-      <div style="border:1px solid var(--cream-dark); border-radius:2px; overflow:hidden;">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/williamsundcompany" style="min-width:320px;height:700px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-      </div>
-      <!-- Calendly inline widget end -->
-
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-brand">LEW Advisory</div>
-    <div class="footer-legal">
-      LEW Advisory, a DBA of L.E. Williams &amp; Co. LLC &nbsp;·&nbsp; Charlottesville, VA<br>
-      &copy; 2026 L.E. Williams &amp; Co. LLC. All rights reserved.
-    </div>
-  </footer>
-
+<p class="p1"><span class="s1">LEW Advisory</span></p>
+<p class="p2"><span class="s1">A DBA OF L.E. WILLIAMS &amp; CO. LLC</span></p>
+<p class="p3"><span class="s2">GET IN TOUCH</span></p>
+<p class="p4"><span class="s1">CHARLOTTESVILLE, VA &amp; SURROUNDING COUNTIES</span></p>
+<h1 style="margin: 0.0px 0.0px 28.0px 0.0px; font: 40.0px 'Helvetica Neue'; color: #ffffff; -webkit-text-stroke: #ffffff"><span class="s1">Senior-level finance,</span><span class="s2"><br>
+</span><span class="s3">on your terms.</span></h1>
+<p class="p6"><span class="s1">LEW Advisory brings CFO-level thinking to small businesses, nonprofits, and individuals — without the overhead of a full-time hire. Bookkeeping, grant reporting, and fractional CFO services rooted in Charlottesville.</span></p>
+<p class="p7"><span class="s2">SCHEDULE A CONSULTATION</span></p>
+<p class="p8"><span class="s1">See Services →</span></p>
+<p class="p9"><span class="s2">QUICKBOOKS PROADVISOR</span><span class="s4"> </span><span class="s2">ORACLE NETSUITE</span><span class="s4"> </span><span class="s2">NONPROFIT &amp; GRANT FUND ACCOUNTING</span><span class="s4"> </span><span class="s2">US GAAP · IFRS · HGB</span><span class="s4"> </span><span class="s2">CHARLOTTESVILLE, VA</span></p>
+<p class="p10"><span class="s5">WHO WE SERVE</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; font: 28.0px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s5">Built for the businesses</span><span class="s2"><br>
+</span><span class="s5">that build this community.</span></h2>
+<p class="p12"><span class="s5">LEW Advisory works with three types of clients across Charlottesville and Albemarle, Fluvanna, Greene, Nelson, Orange, and Louisa counties.</span></p>
+<p class="p13"><span class="s6">☰</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.8px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Small Businesses</span></h3>
+<p class="p15"><span class="s6">Clean books, timely financials, and a finance partner who understands what it takes to run a small business — from startup through growth.</span></p>
+<p class="p16"><span class="s6">◆</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.8px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Nonprofits &amp; Grant-Funded Orgs</span></h3>
+<p class="p15"><span class="s6">Specialized fund accounting and grant reporting built for compliance, audit readiness, and funder relationships. We speak the language of program finance.</span></p>
+<p class="p17"><span class="s6">■</span></p>
+<h3 style="margin: 0.0px 0.0px 12.0px 0.0px; font: 13.8px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Individuals &amp; Gig Workers</span></h3>
+<p class="p15"><span class="s6">Freelancers and self-employed professionals get year-round bookkeeping, quarterly estimated tax planning, and Schedule C preparation.</span></p>
+<p class="p10"><span class="s2">SERVICES</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; font: 28.0px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s2">What we do</span></h2>
+<p class="p12"><span class="s2">From monthly bookkeeping to fractional CFO engagements, every service is delivered with senior-level attention.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Bookkeeping</span></h3>
+<p class="p19"><span class="s6">Monthly bookkeeping to keep your records clean, current, and audit-ready. Includes reconciliations, financial statements, and a monthly check-in.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Catch-Up &amp; Clean-Up</span></h3>
+<p class="p19"><span class="s6">Behind on your books? We'll get you current — whether it's a few months or a few years. Ideal for growing businesses and new clients switching providers.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Grant Reporting &amp; Fund Accounting</span></h3>
+<p class="p19"><span class="s6">Specialized reporting for nonprofits and grant-funded organizations. Ensures compliance with funder requirements and supports audit readiness.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Financial Advisory</span></h3>
+<p class="p19"><span class="s6">On-demand guidance for financial decisions, planning, and reporting. A sounding board when you need CFO-level thinking without the full-time cost.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Gig Worker Tax Management</span></h3>
+<p class="p19"><span class="s6">Quarterly estimated tax planning, Schedule C preparation, and year-round bookkeeping for freelancers and self-employed individuals.</span></p>
+<h3 style="margin: 0.0px 0.0px 10.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s6">Fractional CFO</span></h3>
+<p class="p19"><span class="s6">Strategic financial leadership on a part-time basis. Cash flow forecasting, scenario modeling, board reporting, and financial oversight — when you need it.</span></p>
+<p class="p10"><span class="s5">ABOUT</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; font: 28.0px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s5">Finance experience that travels.</span></h2>
+<p class="p20"><span class="s5">Larry Edward Williams II is a finance and accounting professional with senior-level experience across small businesses, nonprofits, and international organizations. He founded LEW Advisory to give Charlottesville-area clients access to the same quality of financial thinking that large institutions take for granted.</span></p>
+<p class="p21"><span class="s5">Most recently based in Berlin, Larry managed multi-entity, donor-funded program finances at the International Civil Society Centre. He holds a B.Sc. in Business Management &amp; Administration (Finance) from Touro University and is a QuickBooks ProAdvisor.</span></p>
+<p class="p22"><span class="s2"></span><br></p>
+<p class="p19"><span class="s5">Oracle NetSuite · QuickBooks · DATEV · Power BI</span></p>
+<p class="p22"><span class="s2"></span><br></p>
+<p class="p19"><span class="s5">US GAAP · IFRS · HGB multi-framework fluency</span></p>
+<p class="p22"><span class="s2"></span><br></p>
+<p class="p19"><span class="s5">International development &amp; nonprofit sector depth</span></p>
+<p class="p22"><span class="s2"></span><br></p>
+<p class="p19"><span class="s5">B.Sc. Business Management &amp; Administration (Finance), Touro University</span></p>
+<p class="p23"><span class="s1">"Charlottesville deserves the same quality of financial thinking that large organizations take for granted — without the overhead."</span></p>
+<p class="p24"><span class="s1">LARRY EDWARD WILLIAMS II</span></p>
+<p class="p25"><span class="s1">Principal, LEW Advisory</span></p>
+<p class="p10"><span class="s2">GET IN TOUCH</span></p>
+<h2 style="margin: 0.0px 0.0px 20.0px 0.0px; font: 28.0px 'Helvetica Neue'; color: #183d20; -webkit-text-stroke: #183d20"><span class="s2">Let's talk about your books.</span></h2>
+<p class="p26"><span class="s2">Pick a time that works for you. The first consultation is free — no commitment required.</span></p>
+<p class="p27"><span class="s2">Location</span></p>
+<p class="p19"><span class="s2">Charlottesville, VA</span></p>
+<p class="p27"><span class="s2">Email</span></p>
+<p class="p19"><span class="s2">williamsundcompany@gmail.com</span></p>
+<p class="p27"><span class="s2">Serving</span></p>
+<p class="p19"><span class="s2">Charlottesville · Albemarle · Fluvanna · Greene · Nelson · Orange · Louisa</span></p>
+<p class="p28"><span class="s2"></span><br></p>
+<p class="p29"><span class="s7">LEW Advisory</span></p>
+<p class="p30"><span class="s7">LEW Advisory, a DBA of L.E. Williams &amp; Co. LLC  ·  Charlottesville, VA</span></p>
+<p class="p30"><span class="s7">© 2026 L.E. Williams &amp; Co. LLC. All rights reserved.</span></p>
 </body>
 </html>
